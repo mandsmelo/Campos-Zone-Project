@@ -204,13 +204,7 @@ O relatório da avaliação é salvo em:
 
 ---
 
-## 👥 6. Equipe e colaboração
-
-O projeto é desenvolvido de forma colaborativa, com participação dos integrantes nas atividades de programação, desenvolvimento do jogo, implementação de modelos, integração de sistemas, testes e documentação.
-
----
-
-## 📊 7. Considerações finais
+## 📊 6. Considerações finais
 
 O Campos Zone reúne desenvolvimento de jogos e aplicações de Machine Learning em um mesmo ecossistema.
 
