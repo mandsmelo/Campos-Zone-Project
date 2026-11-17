@@ -136,13 +136,13 @@ Dessa forma, o jogo pode consultar os serviços disponibilizados pela API, permi
 Clone o repositório:
 
 ```bash
-git clone https://github.com/mandsmelo/MLCB_Campos-Zone.git
+git clone https://github.com/mandsmelo/Campos-Zone-Project.git
 ```
 
 Entre na pasta:
 
 ```bash
-cd MLCB_Campos-Zone
+cd Campos-Zone-Project
 ```
 
 Instale as dependências:
