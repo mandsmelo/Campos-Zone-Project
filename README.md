@@ -1,43 +1,96 @@
-# Campos Zone — Machine Learning
+# 🎮 Campos Zone
 
-## 1. Sobre o projeto
+### Game Development • Machine Learning • API Integration
+
+Repositório oficial do **Campos Zone**, um projeto acadêmico de desenvolvimento de um jogo cooperativo de sobrevivência contra zumbis, acompanhado de soluções de Machine Learning e integração de sistemas.
+
+O projeto reúne desenvolvimento de jogos com a Godot Engine, inteligência artificial, processamento de dados e serviços disponibilizados por meio de uma API REST.
+
+---
+
+## 📌 Sobre o projeto
 
 O Campos Zone é um jogo cooperativo de sobrevivência contra zumbis, desenvolvido em contexto universitário.
 
-Este repositório apresenta duas aplicações de Machine Learning integradas ao projeto:
+Além do desenvolvimento do jogo, o projeto explora aplicações de Machine Learning para aprimorar a experiência dos jogadores, por meio de duas soluções:
 
-- **Proposta 2:** Chatbot para responder dúvidas sobre o jogo por meio de busca semântica.
-- **Proposta 4:** Modelo de regressão para estimar o tempo restante das missões.
+- **Chatbot inteligente:** sistema de perguntas e respostas baseado em busca semântica, permitindo consultar informações sobre as mecânicas do jogo.
+- **Modelo de regressão:** solução para estimar o tempo restante das missões com base nas características da partida.
 
-## 2. Proposta 2 — Chatbot com busca semântica
+As soluções são disponibilizadas por uma API desenvolvida em Python com FastAPI e integradas ao jogo por meio de requisições HTTP.
+
+---
+
+## 🎮 1. Desenvolvimento do jogo
+
+O jogo Campos Zone é desenvolvido utilizando a Godot Engine, reunindo mecânicas de sobrevivência, exploração e cooperação entre jogadores.
+
+O projeto completo do jogo está disponível no diretório:
+
+📂 [`jogo godot/`](jogo godot/)
+
+**Tecnologia principal:**
+- Godot Engine
+- GDScript
+
+### Como executar
+
+1. Instale a Godot Engine.
+2. Abra o Godot Project Manager.
+3. Selecione a opção de importar um projeto existente.
+4. Localize a pasta do jogo dentro de `jogo godot/`.
+5. Selecione o arquivo `project.godot`.
+6. Abra o projeto e execute a cena principal.
+
+---
+
+## 🧠 2. Machine Learning
+
+Esta frente concentra as soluções inteligentes desenvolvidas para o jogo.
+
+### 2.1 Chatbot com busca semântica
 
 Desenvolvimento de um chatbot que utiliza embeddings e similaridade semântica para recuperar respostas de uma base de conhecimento sobre as mecânicas do jogo.
 
-**Tecnologias:** Python, FastAPI, Sentence Transformers e ChromaDB.
+**Tecnologias:**
+- Python
+- FastAPI
+- Sentence Transformers
+- ChromaDB
 
-**Resultados:**
+**Resultados da avaliação:**
 
-- 30 perguntas e respostas indexadas na base de conhecimento.
-- Busca por similaridade de cosseno.
-- Armazenamento e recuperação dos vetores utilizando ChromaDB.
-- Endpoint `POST /faq/search`.
-- Precisão Top-1: **75,00%**.
-- Recall@3: **91,67%**.
-- Similaridade média do primeiro resultado: **63,71%**.
-- Tempo médio de busca vetorial: **4,21 ms**.
-- Maior tempo médio por pergunta: **5,55 ms**.
+| Métrica | Resultado |
+|---|---:|
+| Perguntas e respostas indexadas | 30 |
+| Precisão Top-1 | 75,00% |
+| Recall@3 | 91,67% |
+| Similaridade média do primeiro resultado | 63,71% |
+| Tempo médio de busca vetorial | 4,21 ms |
+| Maior tempo médio por pergunta | 5,55 ms |
 
-*Observação: os tempos informados correspondem exclusivamente à etapa de busca vetorial, não incluindo a geração dos embeddings ou o processamento total da API.*
+A busca utiliza similaridade de cosseno e armazenamento vetorial com ChromaDB.
 
-## 3. Proposta 4 — Regressão
+Endpoint: `POST /faq/search`
+
+*Observação: os tempos apresentados correspondem exclusivamente à busca vetorial, sem incluir a geração dos embeddings ou o processamento total da API.*
+
+### 2.2 Modelo de regressão
 
 Desenvolvimento de um modelo para estimar o tempo restante de uma missão com base nas características da partida.
 
-**Variáveis utilizadas:** distância percorrida, dano recebido, itens coletados, salas exploradas e tempo decorrido.
+**Variáveis utilizadas:**
+- Distância percorrida;
+- Dano recebido;
+- Itens coletados;
+- Salas exploradas;
+- Tempo decorrido.
 
-Foram utilizados **600 registros simulados** para treinamento e avaliação de dois modelos.
+Foram utilizados 600 registros simulados para treinamento e avaliação de dois modelos.
 
-| **Métrica** | **Regressão Linear** | **Random Forest** |
+**Comparação dos modelos:**
+
+| Métrica | Regressão Linear | Random Forest |
 |---|---:|---:|
 | MAE | 1,8632 | 2,6522 |
 | RMSE | 2,2830 | 3,3003 |
@@ -45,63 +98,122 @@ Foram utilizados **600 registros simulados** para treinamento e avaliação de d
 
 A Regressão Linear apresentou o melhor desempenho e foi escolhida para disponibilização na API.
 
-**Endpoint:** `POST /predict/value`.
+Endpoint: `POST /predict/value`
 
 *Observação: os dados utilizados são simulados, não provenientes de partidas reais.*
 
-## 4. API
+---
 
-O projeto utiliza FastAPI para disponibilizar os serviços por meio de uma API REST.
+## 🔌 3. API e integração
 
-| **Endpoint** | **Método** | **Funcionalidade** |
+O projeto utiliza FastAPI para disponibilizar os serviços de Machine Learning por meio de uma API REST.
+
+**Endpoints disponíveis:**
+
+| Endpoint | Método | Funcionalidade |
 |---|---|---|
 | `/` | GET | Informações da API |
 | `/health` | GET | Verificação de disponibilidade |
 | `/faq/search` | POST | Busca semântica no chatbot |
 | `/predict/value` | POST | Previsão do tempo restante da missão |
 
-A documentação interativa dos endpoints está disponível em `/docs`.
+A integração com a Godot acontece por meio de requisições HTTP.
 
-### Execução local
+Dessa forma, o jogo pode consultar os serviços disponibilizados pela API, permitindo que o chatbot responda dúvidas dos jogadores e que o modelo de regressão forneça estimativas sobre a duração das missões.
 
-Com as dependências Python instaladas, a API pode ser iniciada a partir da pasta raiz do projeto com:
+---
+
+## ⚙️ 4. Como executar a API
+
+### Pré-requisitos
+
+- Python instalado;
+- Git;
+- Dependências listadas em `requirements.txt`.
+
+### Instalação
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/mandsmelo/MLCB_Campos-Zone.git
+```
+
+Entre na pasta:
+
+```bash
+cd MLCB_Campos-Zone
+```
+
+Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+Inicie a API:
 
 ```bash
 uvicorn api.servidor:app --reload
 ```
 
-A base vetorial pode ser criada ou reconstruída executando:
+A documentação interativa da API estará disponível em:
+
+`http://127.0.0.1:8000/docs`
+
+### Outros comandos
+
+Para criar ou reconstruir a base vetorial:
 
 ```bash
 python chatbot/indexacao.py
 ```
 
-Para avaliar a recuperação semântica, execute:
+Para avaliar a recuperação semântica:
 
 ```bash
 python chatbot/avaliar_sinonimos.py
 ```
 
-O relatório detalhado da avaliação é salvo em `resultados/avaliacao_sinonimos.csv`.
+O relatório da avaliação é salvo em:
 
-Após iniciar a API, a documentação interativa pode ser acessada em:
+`resultados/avaliacao_sinonimos.csv`
 
-`http://127.0.0.1:8000/docs`
+---
 
-## 5. Tecnologias
+## 🛠️ 5. Tecnologias utilizadas
 
-Python, FastAPI, Sentence Transformers, ChromaDB, Scikit-learn, Pandas e Jupyter Notebook.
+**Desenvolvimento de jogos**
+- Godot Engine
+- GDScript
 
-## 6. Integração com Godot
+**Machine Learning e dados**
+- Python
+- Scikit-learn
+- Pandas
+- Jupyter Notebook
+- Sentence Transformers
+- ChromaDB
 
-As soluções foram integradas ao jogo Campos Zone, desenvolvido na Godot, por meio de requisições HTTP à API.
+**Backend e integração**
+- FastAPI
+- API REST
+- HTTP
+- Git
+- GitHub
 
-O chatbot permite consultar informações sobre as mecânicas do jogo, recuperando respostas cadastradas na base de conhecimento. O modelo de regressão disponibiliza estimativas do tempo restante das missões.
+---
 
-## 7. Considerações finais
+## 👥 6. Equipe e colaboração
 
-O projeto implementa duas soluções de Machine Learning para o Campos Zone: um chatbot com recuperação semântica de informações para auxiliar os jogadores e um modelo de regressão para estimar o tempo restante das missões.
+O projeto é desenvolvido de forma colaborativa, com participação dos integrantes nas atividades de programação, desenvolvimento do jogo, implementação de modelos, integração de sistemas, testes e documentação.
 
-Os resultados demonstram o funcionamento das soluções, sua disponibilização por meio de uma API REST e sua integração com o jogo desenvolvido na Godot.
+---
 
-A avaliação do chatbot apresentou 75,00% de precisão Top-1 e 91,67% de Recall@3, com tempo médio de busca vetorial de 4,21 ms. Já a Regressão Linear apresentou o melhor desempenho entre os modelos avaliados para a estimativa do tempo de missão.
+## 📊 7. Considerações finais
+
+O Campos Zone reúne desenvolvimento de jogos e aplicações de Machine Learning em um mesmo ecossistema.
+
+A implementação do chatbot com busca semântica e do modelo de regressão demonstra a aplicação prática de técnicas de aprendizado de máquina em um contexto de desenvolvimento de jogos.
+
+A disponibilização dos modelos por meio de uma API REST permite a integração das soluções com a Godot Engine, conectando inteligência artificial e experiência interativa.
