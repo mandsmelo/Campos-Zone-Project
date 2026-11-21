@@ -1,6 +1,6 @@
 # Integração atualizada para a API 3.0.0
 
-Fonte: https://github.com/mandsmelo/MLCB_Campos-Zone.git
+Fonte: https://github.com/mandsmelo/Campos-Zone-Project.git
 Commit conferido: 61f6cdbbbad3e4d00a4441cea5b60164ac059b6f
 
 Esta versão substitui a integração anterior. NÃO é necessário instalar ou
