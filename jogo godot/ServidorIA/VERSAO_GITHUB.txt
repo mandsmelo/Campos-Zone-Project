@@ -1,4 +1,0 @@
-Repositorio: https://github.com/mandsmelo/Campos-Zone-Project.git
-Commit: 61f6cdbbbad3e4d00a4441cea5b60164ac059b6f
-API: 3.0.0
-Adaptacao local: respostas de comandos + contexto InputMap Godot; nao e uma alteracao enviada ao GitHub.
