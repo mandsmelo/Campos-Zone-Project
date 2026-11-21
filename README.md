@@ -27,7 +27,9 @@ O jogo Campos Zone é desenvolvido utilizando a Godot Engine, reunindo mecânica
 
 O projeto completo do jogo está disponível no diretório:
 
-📂 jogo godot/
+📂 `jogo godot/`
+
+O diretório contém o projeto organizado em suas respectivas pastas e arquivos, além de uma versão compactada em `.zip`, facilitando o download e o compartilhamento do jogo.
 
 **Tecnologia principal:**
 - Godot Engine
