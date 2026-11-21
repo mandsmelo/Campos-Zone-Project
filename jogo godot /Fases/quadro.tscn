@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dswiouayysb6y"]
-
-[ext_resource type="Texture2D" uid="uid://dip1s15xsmjeb" path="res://Sprite/Objetos/quadro.png" id="1_5mqam"]
-
-[node name="Quadro" type="Sprite2D" unique_id=389287315]
-z_index = -1
-texture_filter = 1
-texture = ExtResource("1_5mqam")
