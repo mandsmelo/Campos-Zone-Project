@@ -3,9 +3,6 @@
 Fonte: https://github.com/mandsmelo/Campos-Zone-Project.git
 Commit conferido: 61f6cdbbbad3e4d00a4441cea5b60164ac059b6f
 
-Esta versão substitui a integração anterior. NÃO é necessário instalar ou
-executar Ollama/Qwen: o chatbot agora recupera respostas da base semântica.
-
 ## Primeira execução no Windows
 
 1. Extraia todo o projeto em uma pasta nova.
