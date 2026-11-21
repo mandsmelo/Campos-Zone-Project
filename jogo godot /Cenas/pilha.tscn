@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ce6wnppf63j73"]
+
+[ext_resource type="Script" uid="uid://cbphqyr54bcum" path="res://Scripts/pilha.gd" id="1_pmcgy"]
+[ext_resource type="Texture2D" uid="uid://dvxxb7pa1bg5n" path="res://Sprite/Objetos/pilha.png" id="2_0eaqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24lnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0eaqk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gg35"]
+size = Vector2(7.5, 7.5)
+
+[node name="Pilha" type="Area2D" unique_id=1261777645]
+script = ExtResource("1_pmcgy")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=711572309]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.4375, 0.40625)
+sprite_frames = SubResource("SpriteFrames_24lnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=65586174]
+shape = SubResource("RectangleShape2D_2gg35")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=574668449]
