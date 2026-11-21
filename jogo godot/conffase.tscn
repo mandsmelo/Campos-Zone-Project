@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://brpryedvhl8qe"]
+
+[ext_resource type="Script" uid="uid://bd5swbdj0qcme" path="res://Scripts/ConfiguracaoFase.gd" id="1_ag0nk"]
+
+[node name="Node" type="Node" unique_id=331236358 node_paths=PackedStringArray("player")]
+script = ExtResource("1_ag0nk")
+player = NodePath("")
